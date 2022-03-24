@@ -8,13 +8,13 @@
         "email": "huangdijia@gmail.com"
     }],
     "require": {
-        "hyperf/utils": "^2.2",
+        "hyperf/utils": "^3.0",
         "spatie/once": "^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "hyperf/di": "^2.2",
-        "hyperf/ide-helper": "^2.2",
+        "hyperf/di": "^3.0",
+        "hyperf/ide-helper": "^3.0",
         "phpstan/phpstan": "^1.0",
         "phpunit/phpunit": "^9.0",
         "swoole/ide-helper": "dev-master"
