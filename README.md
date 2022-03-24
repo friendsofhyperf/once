@@ -15,60 +15,27 @@ A magic memoization function for hyperf.
 composer require friendsofhyperf/once
 ```
 
+## Documentation
+
+- [Documentation](https://github.com/spatie/once)
+
 ## Usage
 
-The `once` function accepts a `callable`.
-
 ```php
-$myClass = new class() {
+use FriendsOfHyperf\Once\Annotation\Forget;
+use FriendsOfHyperf\Once\Annotation\Once;
+
+class Foo
+{
+    #[Once]
     public function getNumber(): int
     {
-        return once(function () {
-            return rand(1, 10000);
-        });
+        return rand(1, 10000);
     }
-};
-```
 
-No matter how many times you run `$myClass->getNumber()` you'll always get the same number.
-
-The `once` function will only run once per combination of argument values the containing method receives.
-
-```php
-class MyClass
-{
-    /**
-     * It also works in static context!
-     */
-    public static function getNumberForLetter($letter)
+    #[Forget]
+    public function forgetNumber()
     {
-        return once(function () use ($letter) {
-            return $letter . rand(1, 10000000);
-        });
     }
 }
-```
-
-So calling `MyClass::getNumberForLetter('A')` will always return the same result, but calling `MyClass::getNumberForLetter('B')` will return something else.
-
-### Flushing the cache
-
-To flush the entire cache you can call:
-
-```php
-Cache::getInstance()->flush();
-```
-
-### Disabling the cache
-
-In your tests you probably don't want to cache values. To disable the cache you can call:
-
-```php
-Cache::getInstance()->disable();
-```
-
-You can re-enable the cache with
-
-```php
-Cache::getInstance()->enable();
 ```
