@@ -1,0 +1,52 @@
+{
+    "name": "friendsofhyperf/once",
+    "description": "A magic memoization function for hyperf.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "huangdijia",
+        "email": "huangdijia@gmail.com"
+    }],
+    "require": {
+        "hyperf/utils": "^2.2",
+        "spatie/once": "^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "hyperf/di": "^2.2",
+        "hyperf/ide-helper": "^2.2",
+        "phpstan/phpstan": "^1.0",
+        "phpunit/phpunit": "^9.0",
+        "swoole/ide-helper": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "FriendsOfHyperf\\Once\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FriendsOfHyperf\\Once\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "hyperf": {
+            "config": "FriendsOfHyperf\\Once\\ConfigProvider"
+        }
+    },
+    "suggest": {
+        "hyperf/cache": "Require this component for driver 'file'.",
+        "hyperf/db-connection": "Require this component for driver 'database'.",
+        "hyperf/redis": "Require this component for driver 'redis'."
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix $1",
+        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src",
+        "test": "phpunit -c phpunit.xml --colors=always"
+    }
+}
