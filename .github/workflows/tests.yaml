@@ -26,6 +26,6 @@ jobs:
       - name: Run Analyse
         run: |
           composer analyse src
-      # - name: Run Test Cases
-      #   run: |
-      #     composer test
+      - name: Run Test Cases
+        run: |
+          composer test
