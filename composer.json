@@ -15,8 +15,8 @@
         "friendsofphp/php-cs-fixer": "^3.0",
         "hyperf/di": "^3.0",
         "hyperf/ide-helper": "^3.0",
+        "pestphp/pest": "^1.0",
         "phpstan/phpstan": "^1.0",
-        "phpunit/phpunit": "^9.0",
         "swoole/ide-helper": "dev-master"
     },
     "autoload": {
@@ -42,11 +42,14 @@
     "minimum-stability": "dev",
     "config": {
         "sort-packages": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "scripts": {
         "cs-fix": "php-cs-fixer fix $1",
         "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src",
-        "test": "phpunit -c phpunit.xml --colors=always"
+        "test": "vendor/bin/pest"
     }
 }
