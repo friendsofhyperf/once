@@ -17,21 +17,10 @@ class ConfigProvider
     public function __invoke(): array
     {
         return [
-            'dependencies' => [],
             'aspects' => [
                 Annotation\ForgetAspect::class,
                 Annotation\OnceAspect::class,
             ],
-            'annotations' => [
-                'scan' => [
-                    'paths' => [
-                        __DIR__,
-                    ],
-                ],
-            ],
-            'commands' => [],
-            'listeners' => [],
-            'publish' => [],
         ];
     }
 }
